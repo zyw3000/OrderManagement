@@ -3,6 +3,9 @@ package com.ordermanagement.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+
 /**
  * Produce entity. @author MyEclipse Persistence Tools
  */
@@ -44,6 +47,13 @@ public class Produce implements java.io.Serializable {
 		this.status = status;
 		this.number = number;
 		this.score = score;
+	}
+	
+	public String toJsonString(){
+		JsonConfig jc=new JsonConfig();
+		jc.setExcludes(new String[]{"orders","enterprise","type"});
+		JSONObject json = JSONObject.fromObject(this, jc);
+		return json.toString();
 	}
 
 	/** full constructor */

@@ -31,7 +31,7 @@ public class UpdateAction extends BaseActionSupport {
 		if(type.equals("客户")){
 			String jsonString=req.getParameter("customer");
 			Customer customer=Customer.parseJsonString(jsonString);
-			customerDao.updateCustomer(customer);
+			//customerDao.updateCustomer(customer);
 		}else if(type.equals("企业")){
 			String jsonString = req.getParameter("enterprise");
 			Enterprise enterprise = Enterprise.parseJsonString(jsonString);

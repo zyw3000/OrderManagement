@@ -10,12 +10,12 @@
             <column name="ID" />
             <generator class="assigned" />
         </id>
-        <property name="tname" type="java.lang.Integer">
+        <property name="tname" type="java.lang.String">
             <column name="TName" not-null="true">
                 <comment>名称</comment>
             </column>
         </property>
-        <property name="referencePrice" type="java.lang.Integer">
+        <property name="referencePrice" type="java.lang.Double">
             <column name="Reference_Price" not-null="true">
                 <comment>参考价</comment>
             </column>

@@ -3,6 +3,9 @@ package com.ordermanagement.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+
 /**
  * Type entity. @author MyEclipse Persistence Tools
  */
@@ -12,25 +15,32 @@ public class Type implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Integer tname;
-	private Integer referencePrice;
+	private String tname;
+	private double referencePrice;
 	private Set produces = new HashSet(0);
 
 	// Constructors
+	
+	public String toJsonString(){
+		JsonConfig jc=new JsonConfig();
+		jc.setExcludes(new String[]{"produces"});
+		JSONObject json = JSONObject.fromObject(this, jc);
+		return json.toString();
+	}
 
 	/** default constructor */
 	public Type() {
 	}
 
 	/** minimal constructor */
-	public Type(Integer id, Integer tname, Integer referencePrice) {
+	public Type(Integer id, String tname, Integer referencePrice) {
 		this.id = id;
 		this.tname = tname;
 		this.referencePrice = referencePrice;
 	}
 
 	/** full constructor */
-	public Type(Integer id, Integer tname, Integer referencePrice, Set produces) {
+	public Type(Integer id, String tname, Integer referencePrice, Set produces) {
 		this.id = id;
 		this.tname = tname;
 		this.referencePrice = referencePrice;
@@ -47,19 +57,20 @@ public class Type implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Integer getTname() {
-		return this.tname;
+	public String getTname() {
+		return tname;
 	}
 
-	public void setTname(Integer tname) {
+	public void setTname(String tname) {
 		this.tname = tname;
 	}
 
-	public Integer getReferencePrice() {
-		return this.referencePrice;
+
+	public double getReferencePrice() {
+		return referencePrice;
 	}
 
-	public void setReferencePrice(Integer referencePrice) {
+	public void setReferencePrice(double referencePrice) {
 		this.referencePrice = referencePrice;
 	}
 

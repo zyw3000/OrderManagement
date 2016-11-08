@@ -54,7 +54,10 @@
 		<property name="sessionFactory" ref="mysessionFactory">
 		</property>
 	</bean>
-	
+	<bean id="orderDao" class="com.ordermanagement.dao.Imp.OrderDaoImp">
+		<property name="sessionFactory" ref="mysessionFactory">
+		</property>
+	</bean>
 	
 	
 	<!-- ********************Action的配置******************************* -->
@@ -62,6 +65,10 @@
 		<property name="customerDao" ref="customerDao"></property>
 		<property name="enterpriseDao" ref="enterpriseDao"></property>
 	</bean>
+	<bean id="OrderAction" class="com.ordermanagement.action.OrderAction">
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
+	
 	
 	<bean id="registerAction" class="com.ordermanagement.action.RegisterAction">
 		<property name="customerDao" ref="customerDao"></property>

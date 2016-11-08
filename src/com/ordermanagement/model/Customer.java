@@ -81,8 +81,8 @@ public class Customer implements java.io.Serializable {
 		return o.toString();
 	}
 	public static Customer parseJsonString(String jsonString){
-		JSONObject o=JSONObject.fromObject(jsonString);
-		Customer c=new Customer();
+		JSONObject o = JSONObject.fromObject(jsonString);
+		Customer c = new Customer();
 		
 		c.setId(o.optInt("id"));
 		c.setAuthentication(o.optInt("authentication"));
